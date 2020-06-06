@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <h3 class="mt-3">VA Facilities in Florida</h3>
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -8,6 +10,7 @@
             <th scope="col">Name</th>
             <th scope="col">Type</th>
             <th scope="col">VISN</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -16,11 +19,17 @@
             <td>{{ facility.attributes?.name }}</td>
             <td>{{ facility.attributes?.facility_type }}</td>
             <td>{{ facility.attributes?.visn }}</td>
+            <td>
+              <button class="btn btn-link" (click)="details(facility.id)">
+                  <i-feather name="eye"></i-feather>
+                </button>
+            </td>
           </tr>
         </tbody>
       </table>
 
-      <ngb-pagination [(page)]="currentPage" [pageSize]="perPage" [collectionSize]="totalEntries" (pageChange)="changePage($event)"></ngb-pagination>
+      <ngb-pagination [(page)]="currentPage" [pageSize]="perPage" [collectionSize]="totalEntries"
+        (pageChange)="changePage($event)"></ngb-pagination>
     </div>
   </div>
 </div>

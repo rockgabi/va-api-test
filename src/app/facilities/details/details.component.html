@@ -1,1 +1,12 @@
-<p>details works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="mt-3">Details for {{ facility?.id }}</h3>
+
+      <hr>
+      
+      <ngx-json-viewer *ngIf="facility" [json]="facility.attributes"></ngx-json-viewer>
+
+    </div>
+  </div>
+</div>

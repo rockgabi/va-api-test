@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FacilityService } from '../shared/facility.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-facilities',
@@ -14,6 +15,7 @@ export class FacilitiesComponent implements OnInit {
   public totalEntries: number = 0;
 
   constructor(
+    private router: Router,
     private facilityService: FacilityService,
   ) {
     this.facilityService.facilities.subscribe(facilities => this.facilities = facilities);
@@ -30,6 +32,10 @@ export class FacilitiesComponent implements OnInit {
 
   changePage(page) {
     this.facilityService.changePage(page);
+  }
+
+  details(facilityId) {
+    this.router.navigate(['/facilities/' + facilityId]);
   }
 
 }
