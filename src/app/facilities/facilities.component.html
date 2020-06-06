@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">VISN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let facility of facilities;">
+            <th scope="row">{{ facility.id }}</th>
+            <td>{{ facility.attributes?.name }}</td>
+            <td>{{ facility.attributes?.facility_type }}</td>
+            <td>{{ facility.attributes?.visn }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ngb-pagination [(page)]="currentPage" [pageSize]="perPage" [collectionSize]="totalEntries" (pageChange)="changePage($event)"></ngb-pagination>
+    </div>
+  </div>
+</div>
